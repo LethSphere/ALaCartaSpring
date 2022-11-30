@@ -1,8 +1,6 @@
 package com.inn.rotonda.POJO;
 
 import java.io.Serializable;
-
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,29 +14,29 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import lombok.Data;
 
-@NamedQuery(name= "User.findByNombreId", query = "select u from User u where u.name=name")
+@NamedQuery(name="Restaurant.getAllRestaurant", query = "select r from Restaurant r")
 
 @Data
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name="Usuario")
+@Table(name="Restaurante")
 
-public class User implements Serializable{
-    
+public class Restaurant implements Serializable{
+
     private static final long serialVersionUID=1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Usuario_ID")
+    @Column(name="Restaurante_ID")
     private Integer id;
 
-    @Column(name = "Usuario_Nombre")
+    @Column(name="Restaurante_Nombre")
     private String name;
 
-    @Column(name = "Usuario_Direccion")
-    private String idDireccion;
+    @Column(name="Direccion")
+    private String direccion;
 
-
-    
+    @Column(name="Descripcion")
+    private String descripcion;
 }

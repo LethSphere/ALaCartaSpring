@@ -10,7 +10,7 @@ public class RotondaUtils {
     }
     
     public static ResponseEntity<String> getResponseEntity(String responseMessage, HttpStatus httpStatus){
-        return new ResponseEntity<String>("{\"message\":\""+responseMessage+"valio brga\"}",httpStatus);
+        return new ResponseEntity<String>("{\"message\":\""+responseMessage+" valio brga\"}",httpStatus);
     }
     
 }
