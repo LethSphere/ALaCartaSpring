@@ -9,3 +9,5 @@ Cosas en progreso:
     Consulta carrito
 Cosas por hacer:
     Metodo de pago aleatorio con rollback
+
+
