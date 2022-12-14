@@ -49,11 +49,11 @@ function AdminOrders() {
     );
     const [error, setError] = useState('');
     const colorStatus = {
-        'PENDING': 'orange',
-        'ACCEPTED': '#0ec20e',
-        'DECLINED': 'red',
-        'IN_DELIVERY': 'lightblue',
-        'DELIVERED': '#155215'
+        'PENDING': 'rgba(255,143,94,0.85)',
+        'ACCEPTED': 'rgba(60,194,0,0.85)',
+        'DECLINED': 'rgba(255,47,33,0.85)',
+        'IN_DELIVERY': 'rgba(117,189,255,0.85)',
+        'DELIVERED': 'rgba(131,255,187,0.85)'
     };
 
     useEffect(() => {
@@ -166,32 +166,31 @@ function AdminOrders() {
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/admin/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/admin/addFood" style={{color: 'white', fontSize: 20}}>Add Food</Nav.Link>
+               
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/addFood" style={{color: '#CE2C2F', fontSize: 20}}>Añadir Comidas</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/menu" style={{color: 'white', fontSize: 20}}>Menu</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/menu" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
                 </Nav.Item>
             </Nav>
-
-            <br/>
-            <br/>
-            <br/>
-
-            <h2>
-                Filter by status
+            <h2 style={{paddingTop:50}}>
+                Filtro Por Estado
             </h2>
             <Multiselect options={filterOptions} isObject={false}
                          onSelect={handleFilter} onRemove={handleFilter}>
@@ -200,13 +199,13 @@ function AdminOrders() {
             <div>
                 {
                     filterOrders.map((order) => {
-                        return <div style={{padding: 100}}>
+                        return <div style={{position:"relative", padding:10}}>
                             <Card key={order.products + order.orderId}
                                   style={{
                                       backgroundColor: colorStatus[order.state.orderStatus],
                                       padding: 20,
                                       border: '5px solid',
-                                      borderColor: 'cadetblue',
+                                      borderColor: 'black',
                                       borderRadius: 20,
 
                                   }}>

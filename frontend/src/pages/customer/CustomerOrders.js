@@ -62,41 +62,42 @@ function CustomerOrders() {
     }, [])
 
     return (
-        <div style={{backgroundColor: 'black', backgroundImage: 'url(' + reciept + ')', backgroundSize: 'cover'}}>
+        <div >
             <Helmet>
-                <title>🍔 Customer | Orders</title>
+                <title>🍔 Cliente | Ordenes</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/customer/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 400}}>
-                    <Nav.Link href="/customer/home" style={{color: 'white', fontSize: 20}}>Menu</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/home" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/customer/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
                 </Nav.Item>
+                
             </Nav>
 
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
+         <div style={{backgroundColor: 'black', backgroundImage: 'url(' + reciept + ')', backgroundSize: 'cover', padding:50}}>
             {
                 orders.map((order) => {
-                    return <div style={{padding: 100}}>
+                    return <div style={{ position:"relative", padding:10}}>
                         <Card key={order.products + order.orderId}
                               style={{
-                                  backgroundColor: 'white',
+                                  opacity:0.89,
+                                  backgroundColor: '#83FFBB',
                                   padding: 20,
                                   border: '5px solid',
                                   borderColor: 'cadetblue',
@@ -134,6 +135,7 @@ function CustomerOrders() {
                     </div>
                 })
             }
+            </div>
         </div>
     );
 }

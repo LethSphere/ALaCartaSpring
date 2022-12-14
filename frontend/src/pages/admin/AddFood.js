@@ -125,50 +125,53 @@ function AddFood() {
     return (
         <div style={{height: 800, backgroundImage: 'url(' + addFoodBck + ')', backgroundSize: 'cover'}}>
             <Helmet>
-                <title>🍕 Admin | Add Food</title>
+                <title>🍕 Admin | Agregar Comida</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/admin/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/admin/addFood" style={{color: 'white', fontSize: 20}}>Add Food</Nav.Link>
+               
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/addFood" style={{color: '#CE2C2F', fontSize: 20}}>Añadir Comidas</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/menu" style={{color: 'white', fontSize: 20}}>Menu</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/menu" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
                 </Nav.Item>
             </Nav>
 
-            <br/>
-            <br/>
             <Card style={{
                 opacity: 0.85,
-                left: 500,
-                top: 50,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                top: "10%",
                 width: 500,
                 height: 600,
-                backgroundColor: 'orange',
-                padding: 50,
-                borderRadius: 38
+                backgroundColor: '#CE2C2F',
+                padding: 25,
+                borderRadius: 15
             }}>
                 <Card.Title style={{justifyContent: 'center', display: 'flex', color: '#000', fontSize: 40}}>
-                    Add a new food
+                    Agregar comida
                 </Card.Title>
                 <br/>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Category</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Categoria</Form.Label>
                         <Select options={
                             categories.map(cat => {
                                 return {
@@ -182,39 +185,39 @@ function AddFood() {
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Name</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Nombre</Form.Label>
                         <Form.Control
                             name={'name'}
                             type={'text'}
-                            placeholder={'Enter name...'}
+                            placeholder={'Ingrese un Nombre...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Description</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Descripcion</Form.Label>
                         <Form.Control
                             name={'description'}
                             type={'text'}
-                            placeholder={'Enter description...'}
+                            placeholder={'Ingrese una Descripcion...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Price</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Precio</Form.Label>
                         <Form.Control
                             name={'price'}
                             type={'number'}
                             step="0.01"
-                            placeholder={'Enter price...'}
+                            placeholder={'Ingrese un precio...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
-                    <text style={{color: 'red', justifyContent: 'center', display: 'flex'}}>
+                    <text style={{color: 'black', justifyContent: 'center', display: 'flex'}}>
                         {error}
                     </text>
 
-                    <Button variant="primary" type="submit" style={{width: 400}}>
-                        Add food
+                    <Button variant="primary" type="submit" style={{width: 450, position: "relative", top: 20}}>
+                        Añadir comida
                     </Button>
                 </Form>
             </Card>

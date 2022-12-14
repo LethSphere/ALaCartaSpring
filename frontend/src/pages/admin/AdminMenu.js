@@ -42,65 +42,73 @@ function AdminMenu() {
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/admin/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/admin/addFood" style={{color: 'white', fontSize: 20}}>Add Food</Nav.Link>
+               
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/addFood" style={{color: '#CE2C2F', fontSize: 20}}>Añadir Comidas</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/menu" style={{color: 'white', fontSize: 20}}>Menu</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/menu" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 200}}>
-                    <Nav.Link href="/admin/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
                 </Nav.Item>
             </Nav>
 
-            <div style={{padding: 100, backgroundImage: 'url(' + background + ')', backgroundSize: 'contain'}}>
+            <div style={{padding: 60, backgroundImage: 'url(' + background + ')', backgroundSize: 'contain'}}>
 
-                <button style={{backgroundColor: 'yellow'}}
+                <button style={{backgroundColor: 'yellow', borderRadius: 10}}
                 onClick={() => generatePDFFunction()}>
-                    Generate PDF
+                    Generar PDF
                 </button>
 
                 <Card style={{
-                    borderRadius: 45,
-                    backgroundColor: 'yellowgreen',
+                    borderRadius: 30,
+                    opacity:0.90,
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    backgroundColor: '#144C96',
                     display: 'flex',
                     justifyContent: 'center',
                     width: 400,
-                    left: 450,
                     height: 150
                 }}>
-                    <Card.Title style={{fontSize: 45, display: 'flex', justifyContent: 'center'}}>
-                        {restaurant?.name}'s Menu
+                    <Card.Title style={{color: 'white',fontSize: 45, display: 'flex', justifyContent: 'center',fontFamily: 'sans-serif',fontStyle: 'italic'}}>
+                       Carta {restaurant?.name}
                     </Card.Title>
                 </Card>
                 {restaurant?.menu.categories?.map(category => {
                     return <div>
-                        <h1 style={{color: 'white', fontSize: 75}}>
+                        <h1 style={{color: 'white', fontSize: 75, fontFamily: 'cursive'}}>
                             {category.category}
                         </h1>
                         <Card style={{
-                            border: '15px solid',
-                            borderColor: 'white',
-                            borderRadius: 30,
-                            backgroundImage: 'url(' + foodList[category.categoryId % 6] + ')',
+                            opacity: 0.90,
+                            border: '7px solid',
+                            borderColor: 'black',
+                            borderRadius: 15,
+                            backgroundColor: '#C41619',
                             backgroundSize: 'cover'
                         }}>
                             <Card.Body>
-                                <Card.Title style={{color: 'white'}}>
+                                <Card.Title style={{color: 'Black',textAlign: "center"}}>
                                     {category.category}
                                 </Card.Title>
                                 {
                                     category.foodList.map(food => {
-                                        return <div style={{height: 150, padding: 20}}>
+                                        return <div style={{height: 150, padding: 10}}>
                                             <Card style={{
                                                 backgroundColor: 'slategray',
                                                 color: 'white',

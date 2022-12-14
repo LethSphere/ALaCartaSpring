@@ -99,114 +99,120 @@ function CustomerRegister() {
     }
 
     return (
-        <div style={{height: 850, backgroundImage: 'url(' + customerRegisterImg + ')', backgroundSize: 'cover'}}>
+        <div style={{height: 850, backgroundImage: 'url(' + customerRegisterImg + ')', backgroundSize: 'cover',margin:'auto'}}>
             <Helmet>
-                <title>🍔 Customer | Register</title>
+                <title>🍔 Cliente | Register</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
+
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/admin/login" style={{color: 'white', fontSize: 20}}>Admin</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/login" style={{color: '#CE2C2F', fontSize: 20}}>Admin</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 700}}>
-                    <Nav.Link href="/customer/login" style={{color: 'white', fontSize: 20}}>Customer</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/login" style={{color: '#CE2C2F', fontSize: 20}}>Cliente</Nav.Link>
                 </Nav.Item>
             </Nav>
 
-            <br/>
-            <br/>
-            <br/>
-
             <Card style={{
+                alignContent: "center",
+                marginLeft: 'auto',
+                marginRight: 'auto',
                 opacity: 0.85,
-                left: 500,
-                top: 5,
+                top: "8%",
                 width: 500,
                 height: 750,
-                backgroundColor: 'darkcyan',
-                padding: 50
+                backgroundColor: '#F24405',
+                padding: 25
             }}>
                 <Card.Title style={{justifyContent: 'center', display: 'flex', color: '#000', fontSize: 40}}>
-                    Register as customer
+                    Registro Cliente
                 </Card.Title>
                 <br/>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Email address</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Email</Form.Label>
                         <Form.Control
                             name={'email'}
                             type={'email'}
-                            placeholder={'Enter email...'}
+                            placeholder={'Ingresa email...'}
                             onChange={handleChangeUser}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Password</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Contraseña</Form.Label>
                         <Form.Control
                             name={'password'}
                             type={'password'}
-                            placeholder={'Enter password...'}
+                            placeholder={'Ingresa Contraseña...'}
                             onChange={handleChangeUser}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Name</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Nombre</Form.Label>
                         <Form.Control
                             name={'name'}
                             type={'text'}
-                            placeholder={'Enter name...'}
+                            placeholder={'Ingresa Nombre...'}
                             onChange={handleChangeCustomer}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Address</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Dirección</Form.Label>
                         <Form.Control
                             name={'address'}
                             type={'text'}
-                            placeholder={'Enter address...'}
+                            placeholder={'Ingresa Dirección...'}
                             onChange={handleChangeCustomer}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Zone</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Zona</Form.Label>
                         <Select
                             options={
                                 zones.map((zone) => {
                                     return {
+                                        
                                         value: {
                                             id: zone.id
                                         },
                                         label: zone.name
                                     }
+
                                 })
+                               
                             }
                             onChange={handleSelect}>
                         </Select>
+                        
                     </Form.Group>
 
 
-                    <text style={{color: 'red', justifyContent: 'center', display: 'flex'}}>
+                    <text style={{color: 'Black', justifyContent: 'center', display: 'flex'}}>
                         {error}
                     </text>
 
-                    <Button variant="warning" type="submit" style={{width: 400}}>
-                        Register
+                    <Button variant="success" type="submit" style={{width: 400, }}>
+                        Registrate
                     </Button>
                 </Form>
 
                 <br/>
-                <text style={{color: 'black'}}>
-                    Already have an account?
+                <text style={{color: 'black', position: "relative", top: 10}}>
+                    Ya tiene una cuenta?
                 </text>
 
-                <Button variant={'secondary'} style={{width: 100}} onClick={() => {
+                <Button style={{width: 150, position: "relative", top: 20}} onClick={() => {
                     navigate('/customer/login')
                 }}>
                     Login

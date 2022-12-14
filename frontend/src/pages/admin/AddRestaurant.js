@@ -99,45 +99,47 @@ function AddRestaurant() {
     return (
         <div style={{height: 800, backgroundImage: 'url(' + add_restaurant + ')', backgroundSize: 'cover'}}>
             <Helmet>
-                <title>🍕 Admin | Add Restaurant</title>
+                <title>🍕 Admin | Agregar Restaurante</title>
             </Helmet>
-
+          
             <Card style={{
-                opacity: 0.85,
-                left: 425,
-                top: 35,
+                alignContent: "center",
+                opacity: 0.97,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                top: "2%",
                 width: 700,
                 height: 650,
-                backgroundColor: 'lightblue',
-                padding: 50
+                backgroundColor: '#F3C464',
+                padding: 25
             }}>
                 <Card.Title style={{justifyContent: 'center', display: 'flex', color: '#000', fontSize: 40}}>
-                    Add your restaurant
+                   Agrega tu Restaurante
                 </Card.Title>
                 <br/>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Name of the
-                            restaurant</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Nombre del
+                            Restaurante</Form.Label>
                         <Form.Control
                             name={'name'}
                             type={'text'}
-                            placeholder={'Enter name...'}
+                            placeholder={'Ingresa el Nombre...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Location of the
-                            restaurant</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Ubicacion del
+                            Restaurante</Form.Label>
                         <Form.Control
                             name={'location'}
                             type={'text'}
-                            placeholder={'Enter the location...'}
+                            placeholder={'Ingresa la Ubicacion...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Location Zone</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Localidad</Form.Label>
                         <Select
                             options={
                                 zones.map((zone) => {
@@ -156,7 +158,7 @@ function AddRestaurant() {
                     <br/>
 
                     <Form.Group>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Delivery Zones</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Localidades de Entrega</Form.Label>
                         <Multiselect
                             options={
                                 zones.map(zone => {
@@ -177,19 +179,19 @@ function AddRestaurant() {
                     </div>
 
                     <Button variant="success" type="submit" style={{width: 600}}>
-                        Add restaurant
+                        Añadir Restaurante
                     </Button>
                 </Form>
 
                 <br/>
-                <div style={{color: 'black'}}>
-                    Not ready yet? Come back later!
+                <div style={{color: 'black', position: "relative", top: 10}}>
+                    No estas listo? Vuelve Despues!
                 </div>
 
-                <Button style={{width: 100}} onClick={() => {
+                <Button style={{width: 150, position: "relative", top: 20}} onClick={() => {
                     navigate('/admin/register')
                 }}>
-                    Back
+                    Atras
                 </Button>
             </Card>
         </div>

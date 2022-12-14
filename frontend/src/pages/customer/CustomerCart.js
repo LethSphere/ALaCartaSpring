@@ -82,45 +82,45 @@ function CustomerCart() {
     }
 
     return (
-        <div style={{backgroundImage: 'url(' + cart + ')', backgroundSize: 'cover'}}>
+        <div style={{backgroundImage: 'url(' + cart + ')', backgroundSize:'cover'}}>
             <Helmet>
-                <title>🛒 Customer | Cart</title>
+                <title>🛒 Cliente | Carrito</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/customer/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 400}}>
-                    <Nav.Link href="/customer/home" style={{color: 'white', fontSize: 20}} onClick={() => {
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/home" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={{}}>
+                    <Nav.Link onClick={() => {
                         localStorage.setItem('cart-products', JSON.stringify(products));
-                    }}>Menu</Nav.Link>
-                </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/customer/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
-                </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 465}}>
-                    <Nav.Link href="/customer/cart" style={{color: 'white', fontSize: 20}}>Cart</Nav.Link>
+                        localStorage.setItem('current-restaurant', JSON.stringify(currentRestaurant));
+                    }} href="/customer/cart" style={{color: '#CE2C2F', fontSize: 20}}>Carrito</Nav.Link>
                 </Nav.Item>
             </Nav>
 
-            <br/>
-            <br/>
-            <br/>
-
             <Form.Group className={'mb-3'}>
-                <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Additional Details</Form.Label>
+                <Form.Label style={{justifyContent: 'center', display: 'flex',paddingTop:70, fontSize:25}}>Detalles Adicionales</Form.Label>
                 <Form.Control
                     name={'details'}
                     type={'text'}
-                    placeholder={'Enter additional details...'}
+                    placeholder={'Ingrese Detalles Adicionales...'}
                     onChange={handleChange}/>
             </Form.Group>
 
@@ -159,13 +159,32 @@ function CustomerCart() {
                 })
             }
 
-            <h2>
+            <h2 style={{textAlign:"center",backgroundColor: 'rgba(242,242,242,0.85)'}}>
                 Total: {
                 products?.map((product) => product.item.price * product.quantity).reduce((acc, amount) => acc + amount, 0)
             }
             </h2>
+            <div >
 
-            <button style={{width: 500, backgroundColor: 'indianred'}}
+            
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={{ textAlign:"center"}} >
+            <input type="hidden" name="cmd" value="_xclick"></input>
+            <input type="hidden" name="business" value="jetorresa@correo.udistrital.edu.co"></input>
+            <input type="hidden" name="lc" value="AL"></input>
+            <input type="hidden" name="item_name" value="Papas Firtas"></input>
+            <input type="hidden" name="item_number" value="1"></input>
+            <input type="hidden" name="amount" value= {products?.map((product) => product.item.price * product.quantity).reduce((acc, amount) => acc + amount, 0)/4500}></input>
+            <input type="hidden" name="currency_code" value="USD"></input>
+            <input type="hidden" name="button_subtype" value="services"></input>
+            <input type="hidden" name="no_note" value="0"></input>
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest"></input>
+            <input   type="image" src="https://www.paypalobjects.com/es_XC/AR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></input>
+            <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="10" height="10"></img>
+            </form>
+
+            </div>
+
+            <button style={{width: "100%", backgroundColor: 'green',}}
                     className={'btn btn-primary'}
                     onClick={handleSubmit}>
                 Place Order

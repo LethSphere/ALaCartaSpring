@@ -46,35 +46,41 @@ function AdminLogin() {
     }
 
     return (
-        <div style={{height: 800, backgroundImage: 'url(' + adminLogin + ')', backgroundSize: 'cover'}}>
+        <div style={{height: 800, backgroundImage: 'url(' + adminLogin + ')', backgroundSize: 'cover',margin:'auto'}}>
             <Helmet>
                 <title>🍕 Admin | Login</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
+
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/admin/login" style={{color: 'white', fontSize: 20}}>Admin</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/admin/login" style={{color: '#CE2C2F', fontSize: 20}}>Admin</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 700}}>
-                    <Nav.Link href="/customer/login" style={{color: 'white', fontSize: 20}}>Customer</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/login" style={{color: '#CE2C2F', fontSize: 20}}>Cliente</Nav.Link>
                 </Nav.Item>
             </Nav>
 
             <Card style={{
+                alignContent: "center",
                 opacity: 0.85,
-                left: 500,
-                top: 130,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                top: "13%",
                 width: 500,
-                height: 475,
-                backgroundColor: 'lightblue',
-                padding: 50
+                height: 450,
+                backgroundColor: '#F24405',
+                padding: 25
             }}>
                 <Card.Title style={{justifyContent: 'center', display: 'flex', color: '#000', fontSize: 40}}>
                     Login as admin
@@ -82,20 +88,20 @@ function AdminLogin() {
                 <br/>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Email address</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Email</Form.Label>
                         <Form.Control
                             name={'credential'}
                             type={'email'}
-                            placeholder={'Enter email...'}
+                            placeholder={'Ingresa Email...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group className={'mb-3'}>
-                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Password</Form.Label>
+                        <Form.Label style={{justifyContent: 'center', display: 'flex'}}>Contraseña</Form.Label>
                         <Form.Control
                             name={'password'}
                             type={'password'}
-                            placeholder={'Enter password...'}
+                            placeholder={'Ingresa Contraseña...'}
                             onChange={handleChange}/>
                     </Form.Group>
 
@@ -104,19 +110,19 @@ function AdminLogin() {
                     </text>
 
                     <Button variant="success" type="submit" style={{width: 400}}>
-                        Login
+                        Entrar
                     </Button>
                 </Form>
 
                 <br/>
-                <text style={{color: 'black'}}>
-                    Don't have an account?
+                <text style={{color: 'black', position: "relative", top: 10,}}>
+                    No tienes cuenta aún?
                 </text>
 
-                <Button style={{width: 100}} onClick={() => {
+                <Button style={{width: 150, position: "relative", top: 20}} onClick={() => {
                     navigate('/admin/register')
                 }}>
-                    Register
+                    Registrate
                 </Button>
             </Card>
         </div>

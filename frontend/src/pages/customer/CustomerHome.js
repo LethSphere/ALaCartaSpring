@@ -100,40 +100,41 @@ function CustomerHome() {
 
 
     return (
-        <div style={{backgroundColor: 'gray', padding: 0}}>
+        <div style={{backgroundColor: '#FB0522', padding: 0}}>
             <Helmet>
-                <title>🍔 Customer | Home</title>
+                <title>🍔 Cliente | Inicio</title>
             </Helmet>
 
             <Nav
                 style={{
-                    backgroundColor: 'black', height: 55, overflow: 'hidden',
+                    backgroundColor: '#F2F2F2', overflow: 'hidden',
+                    opacity: 0.90,
                     position: 'fixed',
                     top: 0,
                     zIndex: 100,
-                    width: '100%'
+                    width: '100%',
+                    display: "flex",
+                    justifyContent: "space-evenly",
                 }}>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 10}}>
-                    <Nav.Link href="/customer/login" style={{color: 'white', fontSize: 20}}>Home</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/login" style={{color: '#CE2C2F', fontSize: 20}}>Inicio</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 400}}>
-                    <Nav.Link href="/customer/home" style={{color: 'white', fontSize: 20}}>Menu</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/home" style={{color: '#CE2C2F', fontSize: 20}}>Menu</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 300}}>
-                    <Nav.Link href="/customer/orders" style={{color: 'white', fontSize: 20}}>Orders</Nav.Link>
+                <Nav.Item style={{}}>
+                    <Nav.Link href="/customer/orders" style={{color: '#CE2C2F', fontSize: 20}}>Ordenes</Nav.Link>
                 </Nav.Item>
-                <Nav.Item style={{paddingTop: 7, paddingLeft: 465}}>
+                <Nav.Item style={{}}>
                     <Nav.Link onClick={() => {
                         localStorage.setItem('cart-products', JSON.stringify(products));
                         localStorage.setItem('current-restaurant', JSON.stringify(currentRestaurant));
-                    }} href="/customer/cart" style={{color: 'white', fontSize: 20}}>Cart</Nav.Link>
+                    }} href="/customer/cart" style={{color: '#CE2C2F', fontSize: 20}}>Carrito</Nav.Link>
                 </Nav.Item>
             </Nav>
 
-            <br/>
-            <br/>
-            <br/>
-            <h1>Select a restaurant</h1>
+            <h1 style={{paddingTop:51,textAlign:"center",paddingBottom:12,color:"white"}}>Escoge un restaurante</h1>
+
             <Select
                 options={restaurants.map(restaurant => {
                     return {
@@ -142,41 +143,40 @@ function CustomerHome() {
                     }
                 })}
                 onChange={handleSelect}>
+                
             </Select>
 
-            <br/>
-            <br/>
-
             <div style={{
-                borderRadius: 30,
-                border: '10px solid',
-                padding: 100,
+                border: '5px solid',
+                padding: 50,
                 backgroundImage: 'url(' + background + ')',
                 backgroundSize: 'contain'
             }}>
                 <Card style={{
-                    borderRadius: 45,
-                    backgroundColor: 'yellowgreen',
+                    borderRadius: 30,
+                    opacity:0.90,
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    backgroundColor: '#144C96',
                     display: 'flex',
                     justifyContent: 'center',
                     width: 400,
-                    left: 450,
                     height: 150
                 }}>
-                    <Card.Title style={{fontSize: 45, display: 'flex', justifyContent: 'center'}}>
-                        {currentRestaurant?.name}'s Menu
+                    <Card.Title style={{color: 'white',fontSize: 45, display: 'flex', justifyContent: 'center',fontFamily: 'sans-serif',fontStyle: 'italic'}}>
+                       Carta {currentRestaurant?.name} 
                     </Card.Title>
                 </Card>
                 {currentRestaurant?.menu.categories?.map(category => {
                     return <div>
-                        <h1 style={{color: 'white', fontSize: 75}}>
+                        <h1 style={{color: 'white', fontSize: 75, fontFamily: 'cursive'}}>
                             {category.category}
                         </h1>
                         <Card style={{
-                            border: '20px solid',
-                            borderColor: 'lightslategray',
-                            borderRadius: 30,
-                            backgroundImage: 'url(' + foodList[category.categoryId % 6] + ')',
+                            border: '7px solid',
+                            borderColor: 'Black',
+                            borderRadius: 15,
+                            backgroundColor: '#C41619',
                             backgroundSize: 'cover'
                         }}>
                             <Card.Body>
@@ -187,7 +187,8 @@ function CustomerHome() {
                                     category.foodList.map(food => {
                                         return <div style={{height: 220, padding: 20}}>
                                             <Card style={{
-                                                backgroundColor: 'slategray',
+                                            
+                                                backgroundColor: '#04B3AA',
                                                 color: 'white',
                                                 border: '2px solid',
                                                 borderColor: 'white',
@@ -204,9 +205,9 @@ function CustomerHome() {
                                                     </Card.Text>
                                                     <Button
                                                         id={food.name}
-                                                        className={'btn btn-primary'}
+                                                        className={'btn btn-danger'}
                                                         onClick={() => handleAddToCart(food)}>
-                                                        Add to cart
+                                                        Añadir al carro
                                                     </Button>
                                                 </Card.Body>
                                             </Card>
