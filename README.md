@@ -3,6 +3,9 @@ PROYECTO: ALaCarta Rotonda de comidas
 
 Aplicación creada por estudiantes de la universidad distrital, para proyecto de ingeniería de software. Consiste en una aplicación para rotonda de comidas, en la cual se pueden hacer diferentes pedidos, a diferentes restaurantes que conforman la rotonda, desarrollada en Spring boot como backend, y frontend en react.
 
+Link Video a Youtube: https://www.youtube.com/watch?v=SWWGXgdnQYk
+
+En la carpeta Documentos Arquitectura se encuentran todos los PDFs pedidos: doc Arquitectura, Gestion de risgos, Pruebas unitarias, y analsis de requerimiento no cumplido en analisis de fusion. 
 
 Nombre de los Integrantes: 
 David Alexander Molina Díaz - 20202020084
