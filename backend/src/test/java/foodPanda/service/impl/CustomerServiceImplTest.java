@@ -1,11 +1,5 @@
 package foodPanda.service.impl;
 
-import foodPanda.exception.DuplicateEntryException;
-import foodPanda.exception.InvalidInputException;
-import foodPanda.model.*;
-import foodPanda.model.DTOs.AccountDTO;
-import foodPanda.model.states.State;
-import foodPanda.repository.*;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -14,6 +8,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.dao.DataIntegrityViolationException;
+
+import RotondaComidas.exception.DuplicateEntryException;
+import RotondaComidas.exception.InvalidInputException;
+import RotondaComidas.model.*;
+import RotondaComidas.model.DTOs.AccountDTO;
+import RotondaComidas.model.states.State;
+import RotondaComidas.repository.*;
+import RotondaComidas.service.impl.CustomerServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Optional;
